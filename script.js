@@ -88,6 +88,67 @@ var specialCharcters = [
   ".",
 ];
 
+// Set Global Functions 
+function passwordCriteriaPrompts (){
+  //variable to store the length of the password
+  var length = parseInt(
+    prompt("How many characters do you want your password to be?")
+  );
+  //conditional to check of input is a number or not
+  if (isNaN(length) === true) {
+    alert("Please write in a number.");
+    return;
+  }
+  //conditional to check if password is a minimum of 8 characters long
+  if( length < 8) {
+    alert("Your password must be at least 8 characters in lenght.");
+    return;
+  }
+
+  //conditional to check if password is a maximum of 128 characters long
+  if( length > 128) {
+    alert("Your password can't be more than 128 characters in lenght.");
+    return;
+  }
+
+  // variable to store boolean if the user wants lowercase letters or not
+  var  hasLowerCase = confirm(
+    "click OK to use lowercase characters in your password."
+    );
+  // variable to store boolean if the user wants uppercase letters or not
+  var  hasUpperCase = confirm(
+    "click OK to use uppercase characters in your password."
+    );
+  // variable to store boolean if the user wants special characters letters or not
+  var  hasSpecialCharacters = confirm(
+    "click OK to use special characters in your password."
+    );
+
+  // conditional to check if user doesn't select types any of the choices
+  if (
+    hasLowerCase === false && 
+    hasUpperCase === false &&
+    hasSpecialCharacters === false &&
+    hasNumerics === false
+  ) {
+    alert("You must choose at least one character type.");
+    return;
+  }
+
+  //object to store user choices 
+  var passwordCriteria = {
+    length: length,
+    hasLowerCase: hasLowerCase,
+    hasUpperCase: hasUpperCase,
+    hasSpecialCharacters: hasSpecialCharacters,
+    hasNumerics: hasNumerics;
+  };
+
+  return passwordCriteria;
+
+}
+
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
