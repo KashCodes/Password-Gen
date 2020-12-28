@@ -197,7 +197,7 @@ function generatePassword () {
   var finale = finalPassword.join("");
   console.log(finale);
 
-  return finale;
+  
   
 }
 
@@ -216,3 +216,4 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+generatePassword();
