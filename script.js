@@ -136,7 +136,7 @@ function passwordCriteriaPrompts() {
     hasNumerics === false
   ) {
     alert("You must choose at least one character type.");
-    return;
+    return passwordCriteriaPrompts();
   }
 
   //object to store user choices
