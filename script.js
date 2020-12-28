@@ -197,7 +197,7 @@ function generatePassword () {
   var finale = finalPassword.join("");
   console.log(finale);
 
-  
+  return finale;
   
 }
 
