@@ -88,9 +88,8 @@ var specialCharcters = [
   ".",
 ];
 
-
-// Set Global Functions 
-function passwordCriteriaPrompts (){
+// Set Global Functions
+function passwordCriteriaPrompts() {
   //variable to store the length of the password
   var length = parseInt(
     prompt("How many characters do you want your password to be?")
@@ -101,37 +100,37 @@ function passwordCriteriaPrompts (){
     return;
   }
   //conditional to check if password is a minimum of 8 characters long
-  if( length < 8) {
+  if (length < 8) {
     alert("Your password must be at least 8 characters in length.");
     return;
   }
 
   //conditional to check if password is a maximum of 128 characters long
-  if( length > 128) {
+  if (length > 128) {
     alert("Your password can't be more than 128 characters in length.");
     return;
   }
 
   // variable to store boolean if the user wants lowercase letters or not
-  var  hasLowerCase = confirm(
+  var hasLowerCase = confirm(
     "click OK to use lowercase characters in your password."
-    );
+  );
   // variable to store boolean if the user wants uppercase letters or not
-  var  hasUpperCase = confirm(
+  var hasUpperCase = confirm(
     "click OK to use uppercase characters in your password."
-    );
+  );
   // variable to store boolean if the user wants special characters letters or not
-  var  hasSpecialCharacters = confirm(
+  var hasSpecialCharacters = confirm(
     "click OK to use special characters in your password."
-    );
+  );
   // variable to store boolean if the user wants numerics or not
-  var  hasNumerics = confirm(
-    "click OK to use special characters in your password."
-    );
+  var hasNumerics = confirm(
+    "click OK to use numerics in your password."
+  );
 
   // conditional to check if user doesn't select types any of the choices
   if (
-    hasLowerCase === false && 
+    hasLowerCase === false &&
     hasUpperCase === false &&
     hasSpecialCharacters === false &&
     hasNumerics === false
@@ -140,7 +139,7 @@ function passwordCriteriaPrompts (){
     return;
   }
 
-  //object to store user choices 
+  //object to store user choices
   var passwordCriteria = {
     length: length,
     hasLowerCase: hasLowerCase,
@@ -150,11 +149,9 @@ function passwordCriteriaPrompts (){
   };
 
   return passwordCriteria;
-
 }
 
-function generatePassword () {
- 
+function generatePassword() {
   var criteria = passwordCriteriaPrompts();
   console.log(criteria);
   //variable to store password as it's being created
@@ -167,7 +164,7 @@ function generatePassword () {
       results.push(lowerCase[i]);
     }
   }
-  
+
   if (criteria.hasUpperCase) {
     for (i = 0; i < upperCase.length; ++i) {
       results.push(upperCase[i]);
@@ -189,8 +186,8 @@ function generatePassword () {
   var finalPassword = [];
 
   for (i = 0; i < criteria.length; ++i) {
-    var randomGen = Math.floor(Math.random () * Math.floor(results.length));
-    finalPassword.push(results[randomGen])
+    var randomGen = Math.floor(Math.random() * Math.floor(results.length));
+    finalPassword.push(results[randomGen]);
   }
   console.log(finalPassword);
 
@@ -198,9 +195,7 @@ function generatePassword () {
   console.log(finale);
 
   return finale;
-  
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -215,4 +210,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
