@@ -88,6 +88,7 @@ var specialCharcters = [
   ".",
 ];
 
+
 // Set Global Functions 
 function passwordCriteriaPrompts (){
   //variable to store the length of the password
@@ -101,13 +102,13 @@ function passwordCriteriaPrompts (){
   }
   //conditional to check if password is a minimum of 8 characters long
   if( length < 8) {
-    alert("Your password must be at least 8 characters in lenght.");
+    alert("Your password must be at least 8 characters in length.");
     return;
   }
 
   //conditional to check if password is a maximum of 128 characters long
   if( length > 128) {
-    alert("Your password can't be more than 128 characters in lenght.");
+    alert("Your password can't be more than 128 characters in length.");
     return;
   }
 
@@ -121,6 +122,10 @@ function passwordCriteriaPrompts (){
     );
   // variable to store boolean if the user wants special characters letters or not
   var  hasSpecialCharacters = confirm(
+    "click OK to use special characters in your password."
+    );
+  // variable to store boolean if the user wants numerics or not
+  var  hasNumerics = confirm(
     "click OK to use special characters in your password."
     );
 
@@ -141,17 +146,59 @@ function passwordCriteriaPrompts (){
     hasLowerCase: hasLowerCase,
     hasUpperCase: hasUpperCase,
     hasSpecialCharacters: hasSpecialCharacters,
-    hasNumerics: hasNumerics;
+    hasNumerics: hasNumerics,
   };
 
   return passwordCriteria;
 
 }
 
-function createPassword () {
+function generatePassword () {
+ 
   var criteria = passwordCriteriaPrompts();
+  console.log(criteria);
   //variable to store password as it's being created
+
   var results = [];
+  console.log(results);
+
+  if (criteria.hasLowerCase) {
+    for (i = 0; i < lowerCase.length; ++i) {
+      results.push(lowerCase[i]);
+    }
+  }
+  
+  if (criteria.hasUpperCase) {
+    for (i = 0; i < upperCase.length; ++i) {
+      results.push(upperCase[i]);
+    }
+  }
+
+  if (criteria.hasSpecialCharacters) {
+    for (i = 0; i < specialCharcters.length; ++i) {
+      results.push(specialCharcters[i]);
+    }
+  }
+
+  if (criteria.hasNumerics) {
+    for (i = 0; i < numeric.length; ++i) {
+      results.push(numeric[i]);
+    }
+  }
+
+  var finalPassword = [];
+
+  for (i = 0; i < criteria.length; ++i) {
+    var randomGen = Math.floor(Math.random () * Math.floor(results.length));
+    finalPassword.push(results[randomGen])
+  }
+  console.log(finalPassword);
+
+  var finale = finalPassword.join("");
+  console.log(finale);
+
+  return finale;
+  
 }
 
 
@@ -160,7 +207,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = createPassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -168,3 +215,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
