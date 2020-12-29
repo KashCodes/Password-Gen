@@ -24,5 +24,5 @@ Should you fail to meet the requirements when prompted the generator will restar
 
 ---
 
-![Password Generator Screenshot](screen-shot.PNG "Screenshot")
+![Password Generator Screenshot](/screen-shot.PNG "Screenshot")
 
