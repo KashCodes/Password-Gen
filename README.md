@@ -10,7 +10,7 @@ This password generator will require you to use between 8 - 128 characters. It m
 - Special Characters
 - Numerics/Numbers
 
-Should you fail to meet the requirements when prompted the generator will restart so you can resubmit with the correct criteria. 
+Should you fail to meet the requirements when prompted, the generator will restart so you can resubmit with the correct criteria. 
 
 ---
 
