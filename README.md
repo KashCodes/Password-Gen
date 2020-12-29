@@ -1,7 +1,7 @@
 ### Password Generator 
 ---
 
-##Generator Functions:
+## Generator Functions:
 
 This password generator will require you to use between 8 - 128 characters. It must additionally include one of the following character types:
 
