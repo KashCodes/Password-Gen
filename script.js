@@ -97,18 +97,18 @@ function passwordCriteriaPrompts() {
   //conditional to check of input is a number or not
   if (isNaN(length) === true) {
     alert("Please write in a number.");
-    return;
+    return passwordCriteriaPrompts();
   }
   //conditional to check if password is a minimum of 8 characters long
   if (length < 8) {
     alert("Your password must be at least 8 characters in length.");
-    return;
+    return passwordCriteriaPrompts();
   }
 
   //conditional to check if password is a maximum of 128 characters long
   if (length > 128) {
     alert("Your password can't be more than 128 characters in length.");
-    return;
+    return passwordCriteriaPrompts();
   }
 
   // variable to store boolean if the user wants lowercase letters or not
